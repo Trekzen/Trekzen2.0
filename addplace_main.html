@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive Admin & Dashboard Template based on Bootstrap 5">
+    <meta name="author" content="AdminKit">
+    <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="Mainpage/assets/img/icons/icons-48.jpg" />
+
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Leaflet MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css" />
+    <!-- Leaflet Routing Machine CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.css" />
+    
+
+    <title>Treksen</title>
+
+    <link href="Mainpage/assets/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="leaflet/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .container-fluid {
+            padding: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Business section styles */
+        #businessContainer {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px; /* Add gap between Add Business button and Your Business text */
+        }
+
+        #businessContainer h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        #businessList ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #businessList li {
+            margin-bottom: 5px;
+        }
+
+        #businessList li:before {
+            content: "\2022";
+            color: #007bff;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        #map {
+            height: 500px;
+            width: 100%;
+            margin-top: 10px; /* Add gap between Your Business and the map */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="sidebar js-sidebar">
+            <!-- Sidebar content -->
+            <div class="sidebar-content js-simplebar">
+                <a class="sidebar-brand" href="home.html">
+                    <span class="align-self-center">Trekzen</span>
+                </a>
+
+                <ul class="sidebar-nav">
+                    <div class="dropdown-divider"></div>
+                    <li class="sidebar-header">
+                        Pages
+                    </li>
+
+                    <li class="sidebar-item ">
+                        <a class="sidebar-link" href="user_home.html">
+                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="profile.html">
+                            <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+                        </a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+
+                    <li class="sidebar-header">
+                        Services
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="quickplan.html">
+                            <i class="align-middle"></i> <span class="align-middle">Quick Plan</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="vacation.html">
+                            <i class="align-middle"></i> <span class="align-middle">Vacation Planner</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="bussiness.html">
+                            <i class="align-middle"></i> <span class="align-middle">Manage Business</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item active">
+                        <a class="sidebar-link" href="addplace_main.html">
+                            <i class="align-middle"></i> <span class="align-middle">Add Place</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main">
+            <nav class="navbar navbar-expand navbar-light navbar-bg">
+                <!-- Navbar content -->
+                <a class="sidebar-toggle js-sidebar-toggle">
+                    <i class="hamburger align-self-center"></i>
+                </a>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav navbar-align">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
+                                <i class="align-middle" data-feather="settings"></i>
+                            </a>
+
+                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                                <span class="text-dark" id="greet"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" id="signoutbutton">Log out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main class="content">
+                <div class="container-fluid">
+                    <div class="mb-3">
+                        <h1 class="h3 d-inline align-middle">Add Places</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <div>
+                                <div>
+                                    <button id="addPlaceBtn" class="btn btn-primary mt-3">Add Places</button>
+                                </div>
+                                <div id="placeContainer" class="mt-3">
+                                    <!-- Inside #businessContainer -->
+                                    <div id="placeTableContainer">
+                                        <h2>Your Added Place</h2>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Places</th>
+                                                    <th>Type</th>
+                                                    <th>Location</th>
+                                                    <th>Approval</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="placeTableBody">
+                                                <!-- Business data will be populated here -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="Mainpage/assets/js/app.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Leaflet MarkerCluster JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+    <!-- PapaParse JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <!-- Leaflet Routing Machine JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.js"></script>
+    <!-- Your existing JavaScript file -->
+    <script src="script.js"></script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+
+
+    <script>
+       
+            // Add Business button click event
+            document.getElementById("addPlaceBtn").addEventListener("click", function() {
+                // Redirect to bussiness1.html
+                window.location.href = "addplace.html";
+            });
+
+    </script>
+
+    <!-- Include Firebase Modular SDK -->
+    <!-- <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+    apiKey: "AIzaSyB3GccrbGOWYeJb1IwwrAnoStVtouHmo-g",
+    authDomain: "trekzen2024.firebaseapp.com",
+    projectId: "trekzen2024",
+    storageBucket: "trekzen2024.appspot.com",
+    messagingSenderId: "539096075945",
+    appId: "1:539096075945:web:88e4786b9f407a2e32e3b8",
+    measurementId: "G-9ZD4X1PMM9"
+  };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Your existing JavaScript code to fetch and display data
+        function fetchBusinesses() {
+        const businessTableBody = document.getElementById("businessTableBody");
+
+        const businessesCollection = collection(db, "businesses");
+
+        getDocs(businessesCollection).then((querySnapshot) => {
+            if (querySnapshot.size === 0) {
+                // If no businesses, display a message
+                businessTableBody.innerHTML = `
+                    <tr>
+                        <td colspan="4">No businesses added yet.</td>
+                    </tr>
+                `;
+            } else {
+                // If businesses exist, populate the table
+                querySnapshot.forEach((doc) => {
+                    const business = doc.data();
+                    businessTableBody.innerHTML += `
+                        <tr>
+                            <td>${business.name}</td>
+                            <td>${business.type}</td>
+                            <td>${business.location}</td>
+                            <td>${business.approval}</td>
+                        </tr>
+                    `;
+                });
+            }
+        }).catch((error) => {
+            console.error("Error fetching businesses: ", error);
+            businessTableBody.innerHTML = `
+                <tr>
+                    <td colspan="4">Error fetching businesses.</td>
+                </tr>
+            `;
+        });
+    }
+
+
+    // Call the fetchBusinesses function
+    fetchBusinesses();
+    </script> -->
+
+
+    <script type="module" src="user_login.js"></script>
+    
+	
+</body>
+
+</html>

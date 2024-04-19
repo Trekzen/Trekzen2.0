@@ -1,0 +1,32 @@
+[
+  {
+    "day": "2",
+    "distances": [
+      [
+        "Aakkulam",
+        "Alappuzha Beach",
+        153392.234
+      ]
+    ]
+  },
+  {
+    "day": "1",
+    "distances": [
+      [
+        " Club Mahindra Resort - Poovar - Kerala",
+        "Pallimon",
+        87639.102
+      ],
+      [
+        " Club Mahindra Resort - Poovar - Kerala",
+        "Ummannur",
+        96796.875
+      ],
+      [
+        "Pallimon",
+        "Ummannur",
+        15530.344
+      ]
+    ]
+  }
+]

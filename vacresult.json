@@ -1,0 +1,19 @@
+[
+  {
+    "day": "2",
+    "shortestPath": [
+      0,
+      1
+    ],
+    "shortestDistance": 153392.234
+  },
+  {
+    "day": "1",
+    "shortestPath": [
+      0,
+      1,
+      2
+    ],
+    "shortestDistance": 103169.446
+  }
+]

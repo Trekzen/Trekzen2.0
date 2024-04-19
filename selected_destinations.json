@@ -1,0 +1,26 @@
+[
+  {
+    "number": 0,
+    "place": " Capital O Edassery Resort",
+    "coordinates": {
+      "latitude": "9.7559051",
+      "longitude": "77.1168072"
+    }
+  },
+  {
+    "number": 1,
+    "place": "Aranattukara",
+    "coordinates": {
+      "latitude": "10.513001",
+      "longitude": "76.1972107"
+    }
+  },
+  {
+    "number": 2,
+    "place": "Ayyappancoil",
+    "coordinates": {
+      "latitude": "9.6900155",
+      "longitude": "77.0446627"
+    }
+  }
+]

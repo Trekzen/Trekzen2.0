@@ -1,0 +1,591 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+        <!-- meta data -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <!--font-family-->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+		<link href="https://fonts.googleapis.com/css?family=Rufina:400,700" rel="stylesheet">
+
+        <!-- title of site -->
+        <title>TREKZEN</title>
+
+        <!-- For favicon png -->
+		<link rel="shortcut icon" type="image/icon" href="Homepage/assets/images/icons/icons-48.jpg"/>
+       
+        <!--font-awesome.min.css-->
+        <link rel="stylesheet" href="Homepage/assets/css/font-awesome.min.css">
+
+        <!--linear icon css-->
+		<link rel="stylesheet" href="Homepage/assets/css/linearicons.css">
+
+        <!--flaticon.css-->
+		<link rel="stylesheet" href="Homepage/assets/css/flaticon.css">
+
+		<!--animate.css-->
+        <link rel="stylesheet" href="Homepage/assets/css/animate.css">
+
+        <!--owl.carousel.css-->
+        <link rel="stylesheet" href="Homepage/assets/css/owl.carousel.min.css">
+		<link rel="stylesheet" href="Homepage/assets/css/owl.theme.default.min.css">
+		
+        <!--bootstrap.min.css-->
+        <link rel="stylesheet" href="Homepage/assets/css/bootstrap.min.css">
+		
+		<!-- bootsnav -->
+		<link rel="stylesheet" href="Homepage/assets/css/bootsnav.css" >	
+        
+        <!--style.css-->
+        <link rel="stylesheet" href="Homepage/assets/css/style.css">
+        
+        <!--responsive.css-->
+        <link rel="stylesheet" href="Homepage/assets/css/responsive.css">
+		<link rel="stylesheet" href="Homepage/assets/css/login_styles.css">
+		<!--Leaflet api-->
+		<link rel="stylesheet" href="leaflet/leaflet.css" />
+		<script src="leaflet/leaflet.js"></script>
+
+        
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		
+        <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+		<style>
+			#loginBtn {
+				margin: 0 auto;
+				display: block;
+				
+			}
+		   </style>
+		   <style>
+			/* Global Styles */
+			body {
+				font-family: 'Poppins', sans-serif;
+				background-color: #f8f9fa;
+				color: #333;
+			}
+	
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				font-family: 'Poppins', sans-serif;
+				font-weight: 700;
+				margin-top: 0;
+			}
+	
+			p {
+				font-size: 16px;
+				line-height: 1.6;
+				margin-bottom: 20px;
+			}
+	
+			.navbar-brand {
+				font-size: 24px;
+				
+			}
+	
+			.navbar-nav .nav-link {
+				font-size: 18px;
+			   
+				padding: 10px 20px;
+				transition: all 0.3s ease;
+			}
+	
+			.welcome-hero-txt {
+				margin-bottom: 50px; /* Add some margin-bottom to create a gap */
+			}
+			
+			/* Service Section */
+			.service {
+				padding: 100px 0;
+				background-color: #fff;
+				margin-bottom: 500px;
+			}
+	
+			.single-service-item h2 {
+				font-size: 24px;
+				margin-bottom: 20px;
+				height: 50px; /* Set a fixed height for the heading */
+			}
+			
+			.single-service-item p {
+				font-size: 16px;
+				height: 150px; /* Set a fixed height for the paragraph */
+			}
+	
+			/* New Cars Section */
+			.new-cars {
+				
+				background-color: #f8f9fa;
+			}
+	
+			.new-cars h2 {
+				font-size: 36px;
+				margin-bottom: 50px;
+			}
+	
+			.new-cars-item {
+				background-color: #fff;
+				border-radius: 10px;
+				padding: 30px;
+				margin-bottom: 30px;
+				box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease;
+			}
+	
+			.new-cars-item:hover {
+				transform: translateY(-10px);
+			}
+	
+			.new-cars-img img {
+				border-radius: 10px;
+				margin-bottom: 20px;
+			}
+	
+			.new-cars-txt h2 {
+				font-size: 24px;
+				margin-bottom: 20px;
+			}
+	
+			.new-cars-txt p {
+				font-size: 16px;
+			}
+	
+			/* Comments Section */
+			.comments {
+				padding: 100px 0;
+				background-color: #fff;
+			}
+	
+			.comments h2 {
+				font-size: 36px;
+				margin-bottom: 50px;
+			}
+	
+			.comment {
+				background-color: #f8f9fa;
+				border-radius: 10px;
+				padding: 30px;
+				margin-bottom: 30px;
+				box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease;
+			}
+	
+			.comment:hover {
+				transform: translateY(-10px);
+			}
+	
+			.comment p {
+				font-size: 16px;
+				margin-bottom: 10px;
+			}
+	
+			.comment hr {
+				margin-top: 20px;
+				margin-bottom: 20px;
+				border-color: #ddd;
+			}
+		</style>
+
+		
+		
+
+    </head>
+	
+	<body>
+		<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+	
+		<!--welcome-hero start -->
+		<section id="home" class="welcome-hero">
+
+			<!-- top-area Start -->
+			<div class="top-area">
+				<div class="header-area">
+					<!-- Start Navigation -->
+				    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+				        <div class="container">
+
+				            <!-- Start Header Navigation -->
+				            <div class="navbar-header">
+				                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+				                    <i class="fa fa-bars"></i>
+				                </button>
+				                <a class="navbar-brand" href="home.html">TREKZEN<span></span></a>
+
+				            </div><!--/.navbar-header-->
+				            <!-- End Header Navigation -->
+
+				            <!-- Collect the nav links, forms, and other content for toggling -->
+				            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+				                <ul class="nav navbar-nav navbar-right">
+				                    <li class=" scroll active"><a href="#home" id="">home</a></li>
+				                    <li class="scroll"><a href="#service"id="">service</a></li>
+				                    <li class="scroll"><a href="#new-cars"id="">new plans</a></li>
+									<li class="scroll"><a href="#" >Add Place</a></li>
+				                    <li class="scroll"><a href="#contact" id="">contact</a></li>
+									<li class="scroll"><a href="#" id="loginBtn">login</a></li>
+				                </ul><!--/.nav -->
+				            </div><!-- /.navbar-collapse -->
+				        </div><!--/.container-->
+				    </nav><!--/nav-->
+				    <!-- End Navigation -->
+				</div><!--/.header-area-->
+			    <div class="clearfix"></div>
+
+			</div><!-- /.top-area-->
+			<!-- top-area End -->
+	<div class="overlay" id="overlay" style="display: none;"></div>
+		<div class="login-container" id="loginContainer" style="display: none;">
+			<div class="login-content">
+				<span class="close" id="closeBtn">&times;</span>
+				<h2>Log intoTrekzen</h2>
+				<p>Sign in as:</p>
+				<button id="userBtn" onclick="location.href='Loginpage/user_login.html'">User</button>
+			</div>
+		</div>
+
+        <div class="container">
+			<div class="welcome-hero-txt">
+				<h2>get your desired vacation in South India</h2>
+				<p> "Adventure awaits beyond every horizon; embrace the journey, for in it lies the magic of discovery and the essence of life."</p>
+				
+			</div>
+		</div>
+		
+
+
+   
+			
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="service"  class="model-search-content">
+								<div class="row">
+									<div  class="section-header">
+										<h2>Services</h2>
+									</div><!--/.section-header-->
+									<div class="col-md-4 col-sm-6">
+										<a href="#" id="loginBtn">
+										<div class="single-service-item">
+											<div class="single-service-icon">
+												<img src="Homepage/clock.png" class="imageico" alt="img"/>
+											</div>
+											<h2><a href="#">Quick Planner</a></h2>
+											<p>
+												Streamline your travel experience with our quick trip planning service.</p>
+					   
+										</div>
+                                        <!-- <div class="overlay" id="overlay" style="display: none;"></div>
+										 --></a>
+									</div>
+									
+									<div class="col-md-4 col-sm-6">
+										<a href="#" id="loginBtn">
+										<div class="single-service-item">
+											<div class="single-service-icon">
+												<img src="Homepage/route.png" class="imageico" alt="img"/>
+											</div>
+											<h2><a href="#">Long Trip Planner</a></h2>
+											<p>
+												Indulge in the ultimate travel experience with our detailed trip planning service.</p>
+					   
+										</div>
+										</a>
+									</div>
+									<div class="col-md-4 col-sm-6">
+										<a href="#" id="loginBtn">
+										<div class="single-service-item">
+											
+											<div class="single-service-icon">
+												<img src="Homepage/supermarket.png" class="imageico" alt="img"/>
+											</div>
+											<h2><a href="#">Business</a></h2>
+											<p>
+												Adding business is a simple yet powerful feature that allows you to include your business
+								details on our platform.</p>
+					   
+										
+										
+										</div>
+										</a>
+									</div>
+								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</section><!--/.welcome-hero-->
+		<!--welcome-hero end -->
+
+		
+		<!--service end-->
+
+		<!-- New Cars Section -->
+		<section id="new-cars" class="new-cars">
+			<div class="container">
+				<div class="section-header text-center">
+					<h2>Newest Plans</h2>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-6">
+						<div class="new-cars-item">
+							<div class="new-cars-img">
+								<img src="Homepage/assets/images/Places/kodaikanal-lake.webp" alt="Kodaikanal">
+							</div>
+							<div class="new-cars-txt">
+								<h2><a href="#">Kodaikanal</a></h2>
+								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+									nulla pariatur.</p>
+								<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">View Details</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<div class="new-cars-item">
+							<div class="new-cars-img">
+								<img src="Homepage/assets/images/Places/hampi.jpg" alt="Hampi">
+							</div>
+							<div class="new-cars-txt">
+								<h2><a href="#">Hampi</a></h2>
+								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+									nulla pariatur.</p>
+								<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">View Details</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<div class="new-cars-item">
+							<div class="new-cars-img">
+								<img src="Homepage/assets/images/Places/vagamon.jpeg" alt="Vagamon">
+							</div>
+							<div class="new-cars-txt">
+								<h2><a href="#">Vagamon</a></h2>
+								<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+									nulla pariatur.</p>
+								<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">View Details</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Comments Section -->
+		<section id="comments" class="comments">
+			<div class="container">
+				<div class="section-header text-center">
+					<h2>Comments</h2>
+				</div>
+				<div id="homecommentsList" class="homecomments-list" style="max-height: 200px; overflow-y: auto;" ></div>
+				
+			</div>
+		</section>
+	
+		<!--contact start-->
+		<footer id="contact"  class="contact">
+			<div class="container">
+				<div class="footer-top">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="single-footer-widget">
+								<div class="footer-logo">
+									<a href="home.html">TREKZEN</a>
+								</div>
+								<p>
+									Embark on a journey of discovery and adventure with our unforgettable tourism experiences.
+								</p>
+								<div class="footer-contact">
+									<p>To contact us, click <a href="mailto:trekzen24@gmail.com">trekzen24@gmai.com</a></p>
+	
+									<p>+123456789</p>
+								</div>
+							</div>
+						</div>
+
+					
+						<div class="col-md-6 col-sm-12">
+							<div class="single-footer-widget">
+								<h2>news letter</h2>
+								<div class="footer-newsletter">
+									<p>
+										Subscribe to get latest news  update and informations
+									</p>
+								</div>
+								<!-- <div class="hm-foot-email">
+									<div class="foot-email-box"> -->
+										<!-- <input type="text" class="form-control" placeholder="Add Email"> -->
+									<!-- </div>/.foot-email-box -->
+									<!-- <div class="foot-email-subscribe"> -->
+										<!-- <span><i class="fa fa-arrow-right"></i></span> -->
+									<!-- </div>/.foot-email-icon -->
+								<!-- </div>/.hm-foot-email -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer-copyright">
+					<div class="row">
+						<div class="col-sm-6">
+							<p>
+								&copy; copyright.designed and developed by Group 11.
+							</p><!--/p-->
+						</div>
+						
+					</div>
+				</div><!--/.footer-copyright-->
+			</div><!--/.container-->
+
+			<div id="scroll-Top">
+				<div class="return-to-top">
+					<i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+				</div>
+				
+			</div><!--/.scroll-Top-->
+			
+        </footer><!--/.contact-->
+		<!--contact end-->
+
+
+		
+		<!-- Include all js compiled plugins (below), or include individual files as needed -->
+
+		<script src="Homepage/assets/js/jquery.js"></script>
+        
+        <!--modernizr.min.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		
+		<!--bootstrap.min.js-->
+        <script src="Homepage/assets/js/bootstrap.min.js"></script>
+		
+		<!-- bootsnav js -->
+		<script src="Homepage/assets/js/bootsnav.js"></script>
+
+		<!--owl.carousel.js-->
+        <script src="Homepage/assets/js/owl.carousel.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+        <!--Custom JS-->
+        <script src="Homepage/assets/js/custom.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js"></script>
+
+		
+        <!-- JavaScript to control the login window -->
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const loginBtn = document.getElementById('loginBtn');
+            const loginContainer = document.getElementById('loginContainer');
+            const overlay = document.getElementById('overlay');
+            const closeBtn = document.getElementById('closeBtn');
+            const serviceLinks = document.querySelectorAll('.single-service-item');
+
+            serviceLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    loginContainer.style.display = 'block';
+                    overlay.style.display = 'block';
+                });
+            });
+    
+            loginBtn.addEventListener('click', () => {
+                loginContainer.style.display = 'block';
+                overlay.style.display = 'block';
+            });
+    
+            closeBtn.addEventListener('click', () => {
+                loginContainer.style.display = 'none';
+                overlay.style.display = 'none';
+                });
+             });
+        </script>
+		<script type="module">
+			import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js';
+			import { getFirestore ,collection, getDocs} from 'https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js';
+		
+			const firebaseConfig = {
+				apiKey: "AIzaSyB3GccrbGOWYeJb1IwwrAnoStVtouHmo-g",
+				authDomain: "trekzen2024.firebaseapp.com",
+				projectId: "trekzen2024",
+				storageBucket: "trekzen2024.appspot.com",
+				messagingSenderId: "539096075945",
+				appId: "1:539096075945:web:88e4786b9f407a2e32e3b8",
+				measurementId: "G-9ZD4X1PMM9"
+			  };
+		
+			const app = initializeApp(firebaseConfig);
+			console.log('Firebase app initialized:', app);
+		
+			const db = getFirestore(app);
+			console.log('Firestore instance:', db);
+		
+			// Function to fetch and display comments
+			async function displayComments() {
+				const commentsContainer = document.getElementById('homecommentsList');
+		
+				try {
+					// Query the comments collection
+					const querySnapshot = await getDocs(collection(db, 'comments'));
+					querySnapshot.forEach((doc) => {
+						// Create HTML element for each comment
+						const commentData = doc.data();
+						const commentElement = document.createElement('div');
+						commentElement.innerHTML = `
+							<p><strong>${commentData.user}</strong>: ${commentData.text}</p>
+							<hr>
+						`;
+						commentsContainer.appendChild(commentElement);
+					});
+				} catch (error) {
+					console.error('Error fetching comments:', error);
+				}
+			}
+		
+			// Call the function to display comments when the page loads
+			displayComments();
+
+			function subscribe() {
+				const emailInput = document.getElementById("emailInput");
+				const email = emailInput.value;
+			
+				if (email.trim() === "") {
+					alert("Please enter a valid email address.");
+					return;
+				}
+			
+				// Add the email to Firebase Realtime Database
+				const db = firebase.database();
+				db.ref("subscribers").push().set({
+					email: email
+				})
+				.then(() => {
+					alert("Subscription successful!");
+					emailInput.value = ""; // Clear the input field after successful subscription
+				})
+				.catch((error) => {
+					console.error("Error subscribing:", error);
+					alert("An error occurred while subscribing. Please try again later.");
+				});
+			}
+			
+		</script>
+		
+    </body>
+	
+</html>

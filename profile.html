@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="shortcut icon" href="Mainpage/assets/img/icons/icons-48.jpg" />
+
+	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+	<title>Treksen</title>
+
+	<link href="Mainpage/assets/css/app.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<style>
+		
+        .map-container {
+            flex: 1;
+        }
+        .container-fluid{
+        	margin-top: -25px;
+        }
+		.content {
+			padding: 60px; /* Add padding to the main content */
+		}
+		
+		.card ,.row {
+			margin-bottom: 20px; /* Add some space between cards */
+		}
+		
+		 #pgreet, #tourList,#tour{
+			
+			background-color: #e2e4e9; /* Change background color of card headers */
+		}
+
+		.card-header{
+			background-color: #c2c4c7;
+		}
+		
+		.profile-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .delete-account-btn {
+            background-color: #dc3545;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-account-btn:hover {
+            background-color: #c82333;
+        }
+
+		/* Activities cards */
+        .activities-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        .activities-card .card-header {
+            background-color: #bcbebf;
+            border-bottom: 1px solid #434343;
+            padding: 15px 20px;
+        }
+
+		.activities-card .card-title,.Text{
+            font-size: 1.15rem;
+            
+        }
+		
+		
+    </style>
+	<style>
+        /* Style for the container of each tour */
+        .tour-container {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            background-color: #f7f7f7;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        /* Style for the heading of each tour */
+        .tour-container h2 {
+            font-size: 24px;
+            color: #000000;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+    
+        /* Style for the container of each day */
+        .day-container {
+            margin-bottom: 20px;
+        }
+    
+        /* Style for the heading of each day */
+        .day-container h5 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+    
+        /* Style for the list of destinations within each day */
+        .destination-list {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        /* Style for each destination item */
+        .destination-list li {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+    
+        /* Style for the bullet before each destination */
+        .destination-list li::before {
+            content: "\2022"; /* Bullet character */
+            color: #070707;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+    </style>
+
+	<style>
+        .numbering-group {
+            border: 1px solid #070707;
+            padding: 10px;
+            margin-bottom: 20px;
+			background-color: #ffffff;
+        }
+        .destination-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="user_home.html">
+          <span class="align-self-center">Trekzen</span>
+        </a>
+
+				<ul class="sidebar-nav">
+					<div class="dropdown-divider"></div>
+					<li class="sidebar-header">
+						Pages
+					</li>
+
+					<li class="sidebar-item ">
+						<a class="sidebar-link" href="user_home.html">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Home</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item active">
+						<a class="sidebar-link" href="profile.html">
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+            </a>
+					</li>
+					<div class="dropdown-divider"></div>
+
+					<li class="sidebar-header">
+						Services
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="quickplan.html">
+              <i class="align-middle"></i> <span class="align-middle">Quick Plan</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="vacation.html">
+              <i class="align-middle"></i> <span class="align-middle">Vacation Planner</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item ">
+						<a class="sidebar-link" href="bussiness.html">
+              <i class="align-middle"></i> <span class="align-middle">Manage Bussiness</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item">
+                        <a class="sidebar-link" href="addplace_main.html">
+                            <i class="align-middle"></i> <span class="align-middle">Add Place</span>
+                        </a>
+                    </li>
+
+					
+			</div>
+		</nav>
+
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
+				<a class="sidebar-toggle js-sidebar-toggle">
+          <i class="hamburger align-self-center"></i>
+        </a>
+
+				<div class="navbar-collapse collapse">
+					<ul class="navbar-nav navbar-align">
+
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
+                <i class="align-middle" data-feather="settings"></i>
+              </a>
+
+							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                <span class="text-dark" id="greet"></span>
+              </a>
+							<div class="dropdown-menu dropdown-menu-end">
+								<a class="dropdown-item" href="profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#" id="signoutbutton">Log out</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+	<main class="content">
+				<div class="container-fluid p-0">
+
+					<div class="mb-3">
+						<h1 class="d-inline align-middle card-title mb-0 Text">Profile</h1>
+						
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-xl-3">
+							<div class="card mb-3 profile-card">
+								<div class="card-body text-center">
+									<h1 class="profile-name" id="pgreet" style="font-family: 'Times New Roman', Times, sans-serif;"></h1>
+									<!-- Button to delete account -->
+								</div>
+								<div class="card-body text-center"><button class="btn btn-danger delete-account-btn" id="deleteAccountBtn">Delete Account</button>
+                            
+								</div>
+								
+	
+							</div>
+						</div>
+						
+
+						<div class="col-md-8 col-xl-9">
+							<div class="card activities-card">
+								<div class="card-header">
+
+									<h4>Activities</h4>
+								</div>
+								
+								
+								<div class="card-body h-100">
+									<div class="row">
+										<div class="col-md-12">
+											<h5 class="card-title mb-0" id="Short">Daycation</h5>
+											<div class="card">
+												
+												<div class="card-body" id="tourList" style="max-height: 300px; overflow-y: auto;">
+													<!-- Tour data will be rendered here -->
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card-body h-100">
+									<div class="row">
+										<div class="col-md-12">
+											<h5 class="card-title mb-0" id="Long">Long Trip Tour</h5>
+											<div class="card">
+												
+												<div class="card-body" id="tour" style="max-height: 500px; overflow-y: auto;">
+													<!-- Tour data will be rendered here -->
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+								
+				
+								
+							
+						</div>
+					</div>
+				</div>
+
+	</main>
+
+
+			
+		</div>
+	</div>
+
+	
+	<script src="Mainpage/assets/js/app.js"></script>
+	<script type="module" src="user_login.js"></script>
+	
+    <!-- Firebase Configuration and Account Deletion Script -->
+    <script type="module">
+	import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+  	import { getAuth , reauthenticateWithCredential, EmailAuthProvider , deleteUser  } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
+  	import { getFirestore, doc, collection, query, where, deleteDoc, getDocs , updateDoc  } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+
+        // Initialize Firebase with your config
+        const firebaseConfig = {
+			apiKey: "AIzaSyB3GccrbGOWYeJb1IwwrAnoStVtouHmo-g",
+			authDomain: "trekzen2024.firebaseapp.com",
+			projectId: "trekzen2024",
+			storageBucket: "trekzen2024.appspot.com",
+			messagingSenderId: "539096075945",
+			appId: "1:539096075945:web:88e4786b9f407a2e32e3b8",
+			measurementId: "G-9ZD4X1PMM9"
+		  };
+         // Initialize Firebase
+		 const app = initializeApp(firebaseConfig);
+		 const auth = getAuth(app);
+		 const firestore = getFirestore(app);
+ 
+		 document.getElementById("deleteAccountBtn").addEventListener("click", async function () {
+            // Ask for confirmation
+            var confirmation = confirm("Are you sure you want to delete your account? This action cannot be undone.");
+
+            // If user confirms, proceed with account deletion
+            if (confirmation) {
+                var user = auth.currentUser;
+
+                try {
+                    // Reauthenticate the user before deleting the account
+                    const email = user.email;
+                    const password = prompt("Please enter your password to confirm account deletion:");
+                    const credential = EmailAuthProvider.credential(email, password);
+                    await reauthenticateWithCredential(user, credential);
+
+                    // Delete user account
+                	await deleteUser(user);
+
+					// Delete the user's data from Firestore
+					const userAuthListQuery = query(collection(firestore, 'UsersAuthList'), where('userId', '==', user.uid));
+					const userAuthListDocs = await getDocs(userAuthListQuery);
+					userAuthListDocs.forEach(async (doc) => {
+						await deleteDoc(doc.ref);
+					});
+	
+					const commentsQuery = query(collection(firestore, 'comments'), where('userId', '==', user.uid));
+					const commentsDocs = await getDocs(commentsQuery);
+					commentsDocs.forEach(async (doc) => {
+						await deleteDoc(doc.ref);
+					});
+
+                
+
+
+                   // Account deleted successfully
+                    alert("Your account has been deleted.");
+                    // Redirect to the login page or perform any other action after deletion
+                    window.location.href = "../Loginpage/user_login.html"; // Update to your login page path
+                } catch (error) {
+                    // An error occurred
+                    console.error(error);
+                    alert("Failed to delete your account. Please try again later.");
+                }
+            } else {
+                // If user cancels, do nothing
+                return;
+            }
+        });
+    </script>
+	
+
+
+</body>
+
+</html>

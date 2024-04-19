@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive Admin & Dashboard Template based on Bootstrap 5">
+    <meta name="author" content="AdminKit">
+    <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="Mainpage/assets/img/icons/icons-48.jpg" />
+
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Leaflet MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css" />
+    <!-- Leaflet Routing Machine CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.css" />
+
+    <title>Treksen</title>
+
+    <link href="Mainpage/assets/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="leaflet/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="sidebar js-sidebar">
+            <div class="sidebar-content js-simplebar">
+                <a class="sidebar-brand" href="user_home.html">
+                    <span class="align-self-center">Trekzen</span>
+                </a>
+
+                <ul class="sidebar-nav">
+                    <div class="dropdown-divider"></div>
+                    <li class="sidebar-header">
+                        Pages
+                    </li>
+
+                    <li class="sidebar-item ">
+                        <a class="sidebar-link" href="user_home.html">
+                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="profile.html">
+                            <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+                        </a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+
+                    <li class="sidebar-header">
+                        Services
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="quickplan.html">
+                            <i class="align-middle"></i> <span class="align-middle">Quick Plan</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="vacation.html">
+                            <i class="align-middle"></i> <span class="align-middle">Vacation Planner</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="bussiness.html">
+                            <i class="align-middle"></i> <span class="align-middle">Manage Business</span>
+                        </a>
+                    </li>
+
+                  
+
+                    
+                    <li class="sidebar-item active">
+                        <a class="sidebar-link" href="addplace_main.html">
+                            <i class="align-middle"></i> <span class="align-middle">Add Place</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item active">
+                        <a class="sidebar-link" href="addplace.html">
+                            <i class="align-middle"></i> <span class="align-middle">Add A Place</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main">
+            <nav class="navbar navbar-expand navbar-light navbar-bg">
+                <a class="sidebar-toggle js-sidebar-toggle">
+                    <i class="hamburger align-self-center"></i>
+                </a>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav navbar-align">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
+                                <i class="align-middle" data-feather="settings"></i>
+                            </a>
+
+                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                                <span class="text-dark" id="greet"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" id="signoutbutton">Log out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main class="content">
+                <div class="container-fluid">
+                    <div class="mb-3">
+                        <h1 class="h3 d-inline align-middle">Add A Place</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Place</h5>
+                                </div>
+                                <div class="card-body">
+                                    <input type="text" id="placeName" class="form-control" placeholder="Add Name of Place">
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Place Type</h5>
+                                </div>
+                                <div class="card-body">
+                                    <select id="placeType" class="form-select mb-3">
+                                        <option value="" disabled selected>Choose Place Type</option>
+                                        <option>Place</option>
+                                        <option>Tourist</option>
+                                    </select>
+                                </div>
+                                
+                            </div>
+    
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Location</h5>
+                                </div>
+                                <div class="card-body">
+                                    <input type="text" id="location" class="form-control" placeholder="Add Location (Latitude, Longitude)">
+                                </div>
+                            </div>
+    
+                            <button id="addPlaceBtn" class="btn btn-primary mt-3">Add Place</button>
+                            <div id="messageContainer"></div>
+                        </div>
+    
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script src="Mainpage/assets/js/app.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Leaflet MarkerCluster JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+    <!-- PapaParse JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <!-- Leaflet Routing Machine JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.js"></script>
+    <!-- Your existing JavaScript file -->
+    <script src="script.js"></script>
+    <script type="module" src="user_login.js"></script>
+
+    <script>
+        // Updated addPlaceBtn function
+        document.getElementById("addPlaceBtn").addEventListener("click", function() {
+            var placeName = document.getElementById("placeName").value.trim();
+            var placeType = document.getElementById("placeType").value.trim();
+            var location = document.getElementById("location").value.trim();
+
+    if (placeName === '' || placeType === '' || location === '') {
+        alert('Please fill out all fields.');
+        return;
+    }
+ // Explicitly import the addBusiness function from the imported module
+ import('./user_login.js')
+ .then(module => {
+     const { addPlace } = module;
+     addPlace(placeName, placeType, location);
+ })
+ .catch(error => {
+     console.error('Error importing addPlace:', error);
+     alert('Error adding place. Please try again later.');
+ });
+});
+    </script>
+
+    </body>
+    
+    </html>
+                                   

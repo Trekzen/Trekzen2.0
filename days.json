@@ -1,0 +1,52 @@
+[
+  {
+    "day": "2",
+    "placesVisited": [
+      {
+        "number": 0,
+        "place": "Aakkulam",
+        "coordinates": {
+          "latitude": "8.5334906",
+          "longitude": "76.9047438"
+        }
+      },
+      {
+        "number": 1,
+        "place": "Alappuzha Beach",
+        "coordinates": {
+          "latitude": "9.506867",
+          "longitude": "76.3535571"
+        }
+      }
+    ]
+  },
+  {
+    "day": "1",
+    "placesVisited": [
+      {
+        "number": 0,
+        "place": " Club Mahindra Resort - Poovar - Kerala",
+        "coordinates": {
+          "latitude": "8.3064254",
+          "longitude": "77.0861081"
+        }
+      },
+      {
+        "number": 1,
+        "place": "Pallimon",
+        "coordinates": {
+          "latitude": "8.9007957",
+          "longitude": "76.7148927"
+        }
+      },
+      {
+        "number": 2,
+        "place": "Ummannur",
+        "coordinates": {
+          "latitude": "8.9382087",
+          "longitude": "76.8173138"
+        }
+      }
+    ]
+  }
+]
