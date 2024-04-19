@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trekzen</title>
+    <link rel="shortcut icon" href="../Mainpage/assets/img/icons/icons-48.jpg" />
+    <!-- Include your stylesheets -->
+    <link rel="stylesheet" href="cascade/loginstyles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+    <!-- Your page content goes here -->
+    <!-- User Login Page -->
+    <div class="login-container">
+        <form id="loginForm">
+            <h1>Login</h1>
+            <p></p>
+            <input type="email" class="form-control" id="email"  placeholder="Email" required>
+            <input type="password" class="form-control" id="password" placeholder="Password" required>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <p></p>
+            <label id="forgotpasslabel" style="cursor: pointer; margin-top: 8px; margin-left: 2px;">Forgot Password</label>
+            <p></p>
+        </form>
+        <p>or</p>
+        <p>New user? <a href="user_signup_page.html">Sign up</a></p>
+    </div>
+
+    <!-- Include jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>      
+    <!-- Include your custom JavaScript file for login functionality -->
+    <script src="user_login_script.js"></script>
+
+    <!-- JavaScript to control the login window -->
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const loginBtn = document.getElementById("loginBtn");
+            const loginContainer = document.getElementById("loginContainer");
+            const overlay = document.getElementById("overlay");
+            const closeBtn = document.getElementById("closeBtn");
+
+            // Add event listener to the login button in the navigation bar
+            loginBtn.addEventListener("click", function(event) {
+                // Prevent default action of the link
+                event.preventDefault();
+                // Display the login container and overlay
+                loginContainer.style.display = "block";
+                overlay.style.display = "block";
+            });
+
+            closeBtn.addEventListener("click", function() {
+                loginContainer.style.display = "none";
+                overlay.style.display = "none";
+            });
+        });
+    </script> -->
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+//   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+
+
+   import { getFirestore, doc, getDoc}  from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+   import {getAuth, signInWithEmailAndPassword, sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+   
+   
+   const firebaseConfig = {
+    apiKey: "AIzaSyB3GccrbGOWYeJb1IwwrAnoStVtouHmo-g",
+    authDomain: "trekzen2024.firebaseapp.com",
+    projectId: "trekzen2024",
+    storageBucket: "trekzen2024.appspot.com",
+    messagingSenderId: "539096075945",
+    appId: "1:539096075945:web:88e4786b9f407a2e32e3b8",
+    measurementId: "G-9ZD4X1PMM9"
+  };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
+const db= getFirestore();
+const auth= getAuth(app);
+
+
+let EmailInp=document.getElementById('email');
+let PassInp = document.getElementById('password');
+
+let MainForm = document.getElementById('loginForm'); 
+let ForgotPassLabel = document.getElementById('forgotpasslabel');
+
+let SignInUser = evt => {
+evt.preventDefault();
+
+signInWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
+.then(async(credentials)=>{
+var ref = doc(db, "UsersAuthList", credentials.user.uid);
+const docSnap= await getDoc(ref);
+if(docSnap.exists()){
+sessionStorage.setItem("user-info", JSON.stringify({ 
+firstname: docSnap.data().firstname,
+lastname: docSnap.data().lastname,
+
+}))
+
+sessionStorage.setItem("user-creds", JSON.stringify(credentials.user)); 
+window.location.href="../user_home.html";//homepage evide kodukanam
+
+}
+})
+.catch((error)=>{
+alert(error.message);
+console.log(error.code);
+console.log(error.message)
+
+})
+}
+
+
+
+let ForgotPassword =()=>{
+
+sendPasswordResetEmail(auth, EmailInp.value)
+.then(()=>{
+alert("A password Reset Link has been sent to your email");
+})
+.catch(()=>{
+console.log(error.code);
+console.log(error.message);
+})
+}
+MainForm.addEventListener('submit', SignInUser)
+ForgotPassLabel.addEventListener('click', ForgotPassword)
+
+
+
+</script>
+</body>
+</html>
