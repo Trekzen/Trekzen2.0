@@ -12,12 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
         var daysInput = document.getElementById('Days');
         var submitButton = document.getElementById('submit');
         var startingLocationSelect = document.getElementById('location');
+        var Nos = document.getElementById('No');
 
         daysInput.addEventListener('input', updateDaySelectOptions);
 
         tripForm.addEventListener('submit', function (e) {
             e.preventDefault();
             updateDaySelectOptions();
+
         });
 
         document.getElementById('addToRouteButton').addEventListener('click', function () {
@@ -49,22 +51,31 @@ document.addEventListener("DOMContentLoaded", function () {
             container.innerHTML = '';
 
             if (startingLocation) {
-                var startingLocationElement = document.createElement('div');
-                startingLocationElement.textContent = 'Starting Location: ' + startingLocation;
-                startingLocationElement.style.fontWeight = 'bold';
-                startingLocationElement.classList.add('selectedDestination');
-                container.appendChild(startingLocationElement);
-
-                var changeStartingLocationButton = document.createElement('button');
-                changeStartingLocationButton.textContent = 'Change Starting Location';
-                changeStartingLocationButton.classList.add('btn', 'btn-primary', 'btn-sm', 'ms-2');
-                changeStartingLocationButton.addEventListener('click', function () {
-                    startingLocationSelect.disabled = false;
-                    startingLocationSelect.value = '';
-                    startingLocation = '';
-                    updateSelectedDestinations();
-                });
-                startingLocationElement.appendChild(changeStartingLocationButton);
+                if (!selectedDestinations.includes(startingLocation)) { // Check if the selected starting location is not a preset place
+                    var startingLocationElement = document.createElement('div');
+                    startingLocationElement.textContent = 'Starting Location: '+' '+' ' + startingLocation;
+                    startingLocationElement.style.fontWeight = 'bold'; 
+                    startingLocationElement.classList.add('selectedDestination'); // Apply the same class as selected destinations
+                    container.appendChild(startingLocationElement);
+        
+                    // Add change option button for starting location
+                    var changeStartingLocationButton = document.createElement('button');
+                    changeStartingLocationButton.textContent = 'Change Starting Location';
+                    changeStartingLocationButton.classList.add('btn', 'btn-primary', 'btn-sm', 'ms-2');
+                    changeStartingLocationButton.addEventListener('click', function () {
+                        startingLocationSelect.disabled = false;
+                        startingLocationSelect.value = '';
+                        startingLocation = '';
+                        updateSelectedDestinations();
+                    });
+                    startingLocationElement.appendChild(changeStartingLocationButton);
+                } else {
+                    alert('Starting location cannot be same as Destinations.');
+                    startingLocation= '';
+                    
+                   
+                }
+    
             }
 
             selectedDestinations.forEach(function (destination) {
@@ -182,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 };
                 xhr.send(JSON.stringify({ destinations: destinationsToSend, day: currentDay }));
             } else {
-                alert('Please select destinations.');
+                alert('Please select destinations and starting location.');
             }
         }); 
 
@@ -237,6 +248,8 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 alert('Please enter a valid number of days.');
             }
+                    // Hide the submit button after it's clicked
+                    Nos.style.display = 'none';
         });
 
         document.getElementById('location').addEventListener('change', function (event) {
@@ -251,6 +264,36 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById('startNewTourBtn').style.display = 'block';
             }
         });
+
+        // Create a style element
+        var style = document.createElement('style');
+        style.type = 'text/css';
+
+        // Define the CSS rules for highlighting the number
+        var css = '.number-highlighted { \
+                        background-color: #000000; \
+                        color: #fff; \
+                        font-size: 14px; \
+                        width: 18px; \
+                        height: 18px; \
+                        border-radius: 50%; \
+                        display: flex; \
+                        justify-content: center; \
+                        align-items: center; \
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); \
+                    }';
+
+        // Add the CSS rules to the style element
+        if (style.styleSheet) {
+            // For IE
+            style.styleSheet.cssText = css;
+        } else {
+            // For other browsers
+            style.appendChild(document.createTextNode(css));
+        }
+
+        // Append the style element to the document's head
+        document.head.appendChild(style);
 
         function displayPathForDay(day) {
             // Wait for a while to ensure the server has created the ordered_places.json file
@@ -338,41 +381,41 @@ document.addEventListener("DOMContentLoaded", function () {
                                         }).join('<br>'); // Separate instructions by line breaks
 
                                         // Display turn-by-turn instructions in a detailed way
-// Display turn-by-turn instructions in a detailed format
-var instructionsDiv = document.createElement('div');
-instructionsDiv.style.position = 'absolute';
-instructionsDiv.style.top = '10px';
-instructionsDiv.style.right = '10px';
-instructionsDiv.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-instructionsDiv.style.padding = '10px';
-instructionsDiv.style.borderRadius = '5px';
-instructionsDiv.style.zIndex = '1000';
-instructionsDiv.style.maxWidth = '250px'; // Adjust width as needed
-instructionsDiv.style.height = '300px';
-instructionsDiv.style.overflowY = 'auto'; // Enable vertical scrolling if needed
+                                        // Display turn-by-turn instructions in a detailed format
+                                        var instructionsDiv = document.createElement('div');
+                                        instructionsDiv.style.position = 'absolute';
+                                        instructionsDiv.style.top = '10px';
+                                        instructionsDiv.style.right = '10px';
+                                        instructionsDiv.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+                                        instructionsDiv.style.padding = '10px';
+                                        instructionsDiv.style.borderRadius = '5px';
+                                        instructionsDiv.style.zIndex = '1000';
+                                        instructionsDiv.style.maxWidth = '150px'; // Adjust width as needed
+                                        instructionsDiv.style.height = '150px';
+                                        instructionsDiv.style.overflowY = 'auto'; // Enable vertical scrolling if needed
 
-var instructionsTitle = document.createElement('h3');
-instructionsTitle.textContent = 'Turn-by-Turn Instructions:';
-instructionsDiv.appendChild(instructionsTitle);
+                                        var instructionsTitle = document.createElement('h5');
+                                        instructionsTitle.textContent = 'Turn-by-Turn Instructions:';
+                                        instructionsDiv.appendChild(instructionsTitle);
 
-var instructionsList = document.createElement('ol');
-instructionsList.style.paddingLeft = '20px'; // Adjust left padding as needed
+                                        var instructionsList = document.createElement('ol');
+                                        instructionsList.style.paddingLeft = '20px'; // Adjust left padding as needed
 
-var instructions = routeData.routes[0].legs[0].steps;
-instructions.forEach(function (step, index) {
-    var instructionItem = document.createElement('li');
-    var instructionText = document.createTextNode(
-        
-        'Travel ' + step.distance.toFixed(2) + ' meters in ' + 
-        step.duration.toFixed(2) + ' seconds. ' + 
-        'Then ' + step.maneuver.instruction
-    );
-    instructionItem.appendChild(instructionText);
-    instructionsList.appendChild(instructionItem);
-});
+                                        var instructions = routeData.routes[0].legs[0].steps;
+                                        instructions.forEach(function (step, index) {
+                                            var instructionItem = document.createElement('li');
+                                            var instructionText = document.createTextNode(
+                                                
+                                                'Travel ' + step.distance.toFixed(2) + ' meters in ' + 
+                                                step.duration.toFixed(2) + ' seconds. ' + 
+                                                'Then ' + step.maneuver.instruction
+                                            );
+                                            instructionItem.appendChild(instructionText);
+                                            instructionsList.appendChild(instructionItem);
+                                        });
 
-instructionsDiv.appendChild(instructionsList);
-map.getContainer().appendChild(instructionsDiv);
+                                        instructionsDiv.appendChild(instructionsList);
+                                        map.getContainer().appendChild(instructionsDiv);
 
                                     } else {
                                         console.error('Error fetching route:', routeRequest.statusText);
@@ -390,13 +433,35 @@ map.getContainer().appendChild(instructionsDiv);
 
                             // Add markers for each place
                             orderedPlaces.forEach(function (place) {
-                                var marker = L.marker([place.coordinates.latitude, place.coordinates.longitude]).addTo(map);
-                                marker.bindPopup(place.place); // Use place name for popup content
-                                // Add event listener to show place name popup on marker click
-                                marker.on('click', function (e) {
-                                    marker.openPopup();
+                                // var marker = L.marker([place.coordinates.latitude, place.coordinates.longitude]).addTo(map);
+                                // marker.bindPopup(place.place); // Use place name for popup content
 
-                                    map.addLayer(markerCluster);
+                                // Add event listener to show place name popup on marker click
+                                // marker.on('click', function (e) {
+                                //     marker.openPopup();
+                                // });
+
+                                // Add numbering to the marker icon
+                                var numberIcon = L.divIcon({
+                                    className: 'number-icon',
+                                    html: '<div class="number-highlighted">' + place.order + '</div>'
+                                });
+
+                                // Add the DivIcon to the map at the specified coordinates
+                                var marker = L.marker([place.coordinates.latitude, place.coordinates.longitude], { icon: numberIcon }).addTo(map);
+
+                                // Set up a boolean flag to toggle popup visibility
+                                var popupVisible = false;
+
+                                // Add event listener to toggle place name popup on DivIcon click
+                                marker.on('click', function (e) {
+                                    if (popupVisible) {
+                                        marker.closePopup();
+                                        popupVisible = false;
+                                    } else {
+                                        marker.bindPopup(place.place).openPopup();
+                                        popupVisible = true;
+                                    }
                                 });
                             });
                         }  else {
