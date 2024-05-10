@@ -176,56 +176,56 @@ app.post('/saveDestinations', (req, res) => {
     });
 });
 
-let selectedDestinations = [];
-const selectedDestinationsFile = 'selected_destinations.json';
-try {
-    if (fs.existsSync(selectedDestinationsFile)) {
-        const data = fs.readFileSync(selectedDestinationsFile, 'utf8');
-        if (data.trim() !== '') {
-            selectedDestinations = JSON.parse(data);
-        }
-    }
-} catch (error) {
-    console.error('Error parsing selected_destinations.json:', error);
-}
+// let selectedDestinations = [];
+// const selectedDestinationsFile = 'selected_destinations.json';
+// try {
+//     if (fs.existsSync(selectedDestinationsFile)) {
+//         const data = fs.readFileSync(selectedDestinationsFile, 'utf8');
+//         if (data.trim() !== '') {
+//             selectedDestinations = JSON.parse(data);
+//         }
+//     }
+// } catch (error) {
+//     console.error('Error parsing selected_destinations.json:', error);
+// }
 
-let distances = [];
-const distanceFile = 'distance.json';
-try {
-    if (fs.existsSync(distanceFile)) {
-        const data = fs.readFileSync(distanceFile, 'utf8');
-        if (data.trim() !== '') {
-            distances = JSON.parse(data);
-        }
-    }
-} catch (error) {
-    console.error('Error parsing distance.json:', error);
-}
+// let distances = [];
+// const distanceFile = 'distance.json';
+// try {
+//     if (fs.existsSync(distanceFile)) {
+//         const data = fs.readFileSync(distanceFile, 'utf8');
+//         if (data.trim() !== '') {
+//             distances = JSON.parse(data);
+//         }
+//     }
+// } catch (error) {
+//     console.error('Error parsing distance.json:', error);
+// }
 
-// Create an empty matrix
-const matrix = [];
+// // Create an empty matrix
+// const matrix = [];
 
-// Initialize matrix with zeros
-for (let i = 0; i < selectedDestinations.length; i++) {
-    matrix[i] = [];
-    for (let j = 0; j < selectedDestinations.length; j++) {
-        matrix[i][j] = 0;
-    }
-}
+// // Initialize matrix with zeros
+// for (let i = 0; i < selectedDestinations.length; i++) {
+//     matrix[i] = [];
+//     for (let j = 0; j < selectedDestinations.length; j++) {
+//         matrix[i][j] = 0;
+//     }
+// }
 
-// Fill the matrix with distances based on selected destinations
-for (const distance of distances) {
-    const place1Index = selectedDestinations.findIndex(dest => dest.place === distance[0]);
-    const place2Index = selectedDestinations.findIndex(dest => dest.place === distance[1]);
-    const distanceValue = distance[2];
+// // Fill the matrix with distances based on selected destinations
+// for (const distance of distances) {
+//     const place1Index = selectedDestinations.findIndex(dest => dest.place === distance[0]);
+//     const place2Index = selectedDestinations.findIndex(dest => dest.place === distance[1]);
+//     const distanceValue = distance[2];
 
-    // Update matrix with distance value
-    matrix[place1Index][place2Index] = distanceValue;
-    matrix[place2Index][place1Index] = distanceValue; // Assuming distances are symmetric
-}
+//     // // Update matrix with distance value
+//     // matrix[place1Index][place2Index] = distanceValue;
+//     // matrix[place2Index][place1Index] = distanceValue; // Assuming distances are symmetric
+// }
 
-// Store the matrix in matrix.json
-fs.writeFileSync('matrix.json', JSON.stringify(matrix, null, 2));
+// // // Store the matrix in matrix.json
+// // fs.writeFileSync('matrix.json', JSON.stringify(matrix, null, 2));
 
 // Endpoint to empty the selected_destinations.json file
 app.put('/emptySelectedDestinationsFile', async (req, res) => {
