@@ -1795,7 +1795,6 @@ Idukki,tourist,Pampanal Waterfalls,9.8238254,76.6927725
 Idukki,tourist,Panchalimedu View Point,9.5226017,76.9742203
 Idukki,tourist,Parunthumpara Eagle Rock,9.5476586,77.0304241
 Idukki,tourist,Periyar Lake,10.07337062,76.58278577
-Idukki,tourist,Periyar National Park,9.4631378,77.2286518
 Idukki,tourist,Pettimudi Hill Top,10.017925,76.9802446
 Idukki,tourist,Pothamedu View Point,10.0596918,77.064076
 Idukki,tourist,Pottas Farm World Boating Park,10.018835,76.9288201
@@ -2104,15 +2103,15 @@ Pathanamthitta,hotels,Club 7 Hotel,9.2647582,76.7870414
 Pathanamthitta,hotels,Hotel Hills Park,9.2666145,76.803768
 Pathanamthitta,hotels,Hotel KGA Elite Continental,9.3872887,76.5748368
 Pathanamthitta,hotels,PARTHASARATHY RESIDENCY,9.2679393,76.7893899
-Thiruvanathapuram,hotels,Abad Harmonia | Resort in Kovalam,8.3557034,77.0204819
-Thiruvanathapuram,hotels,Club Mahindra Resort - Poovar - Kerala,8.3064254,77.0861081
-Thiruvanathapuram,hotels,Gokulam Grand Turtle on the Beach,8.3903379,76.9763897
-Thiruvanathapuram,facilities,Hotel Beach Florra Inn,8.3852108,76.9795235
-Thiruvanathapuram,hotels,Hotel Rohini International,8.670354,77.0850059
-Thiruvanathapuram,hotels,InDa Hotel,8.5241391,76.9366376
-Thiruvanathapuram,hotels,Magnolia Guesthouse-Varkala resorts|Budget resorts in Varkala|Beach resorts in Varkala,8.7491168,76.6959765
-Thiruvanathapuram,hotels,Niraamaya Retreats Surya Samudra Kovalam,8.3631722,77.0079653
-Thiruvanathapuram,hotels,Poovar Island Resort,8.3214433,77.0777759
+Thiruvananthapuram,hotels,Abad Harmonia | Resort in Kovalam,8.3557034,77.0204819
+Thiruvananthapuram,hotels,Club Mahindra Resort - Poovar - Kerala,8.3064254,77.0861081
+Thiruvananthapuram,hotels,Gokulam Grand Turtle on the Beach,8.3903379,76.9763897
+Thiruvananthapuram,facilities,Hotel Beach Florra Inn,8.3852108,76.9795235
+Thiruvananthapuram,hotels,Hotel Rohini International,8.670354,77.0850059
+Thiruvananthapuram,hotels,InDa Hotel,8.5241391,76.9366376
+Thiruvananthapuram,hotels,Magnolia Guesthouse-Varkala resorts|Budget resorts in Varkala|Beach resorts in Varkala,8.7491168,76.6959765
+Thiruvananthapuram,hotels,Niraamaya Retreats Surya Samudra Kovalam,8.3631722,77.0079653
+Thiruvananthapuram,hotels,Poovar Island Resort,8.3214433,77.0777759
 Thrissur,hotels,Ashoka Inn,10.5138202,76.2149082
 Thrissur,hotels,EdenValley Lake View Resort,10.6178261,76.2381186
 Thrissur,hotels,Hamara hotels & Bar Thrissur,10.5058386,76.259677
@@ -2128,3 +2127,16 @@ Wayanad,hotels,Karapuzha Village Resort,11.6106926,76.1614026
 Wayanad,facilities,Le Sapphire Hotel & Restaurant,11.6683333,76.2663
 Wayanad,hotels,Vistara Resort,11.6111892,76.1802791
 Wayanad,hotels,WILTON HOTEL & RESTAURANT,11.6585731,76.2469872
+Kodaikanal,tourist,GunaCave,10.2103444,77.4617799
+Kodaikanal,tourist,Pillar Rocks Viewpoint,10.2098894,77.4651615
+Kodaikanal,tourist,Silver cascade falls,10.2416013,77.5107328
+Kodaikanal,tourist,Upper Lake View,10.2303509,77.4754961
+Kodaikanal,tourist,Pine Forest,10.2136358,77.4588208
+Hampi,tourist,Group of Monuments at Hampi,15.3349769,76.4619233
+Hampi,tourist,Lotus Mahal,15.3202851,76.4713243
+Hampi,tourist,Mathanga Hill,15.3316387,76.4682381
+Hampi,tourist,Virupaksha Temple,15.3351333,76.4586529
+Vagamon,tourist,Vagamon Meadows,9.6671447,76.9210489
+Vagamon,tourist,Vagamon Pine Forest,9.6903995,76.9083642
+Vagamon,tourist,Vagamon Tea Lake Boating,9.6889733,76.9101482
+
