@@ -181,7 +181,7 @@ const renderDays = (destinations) => {
 
     // Show or hide the "Long Trip Tour" container based on data
     const longTripContainer = document.getElementById("Long");
-    if (Object.keys(groupedDestinations).length === 0) {
+    if (Object.keys(tours).length === 0) {
         longTripContainer.closest(".card-body").style.display = "none";
     } else {
         longTripContainer.closest(".card-body").style.display = "block";
