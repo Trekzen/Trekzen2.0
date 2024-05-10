@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+    <meta name="author" content="AdminKit">
+    <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="Mainpage/assets/img/icons/icons-48.jpg" />
+
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Leaflet MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css" />
+    <!-- Leaflet Routing Machine CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.css" />
+
+    <title>Treksen</title>
+
+    <link href="Mainpage/assets/css/app.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="leaflet/leaflet.css" />
+    <style>
+        #map {
+            height: 500px;
+        }
+        #startNewTour {
+            display: block;
+            margin: 0 auto;
+            width: 200px; /* Adjust the width as needed */
+        }
+    </style>
+    <style>
+        /* CSS styles for selected destinations container and inserted places */
+        .selectedDestination {
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 15px; /* Adjust the margin-bottom to add gaps */
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Align items to both ends */
+        }
+        
+        .selectedDestination .destination-text {
+            flex-grow: 1;
+            padding-left: 10px; /* Add padding to the left of the destination text */
+        }
+        
+        .selectedDestination .delete-button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        .selectedDestination .delete-button:hover {
+            background-color: #c82333;
+        }
+        
+        #selectedDestinationsContainer h2 {
+            margin-bottom: 10px;
+        }
+        
+        #showTourButton {
+            margin-top: 20px;
+        }
+        
+        /* Styles for the map container */
+        .map-container {
+            height: 300px; /* Adjust height as needed */
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+        
+        #location.selectedDestination {
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 15px; /* Adjust the margin-bottom to add gaps */
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Align items to both ends */
+        }
+        
+        #location.selectedDestination .delete-button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        #location.selectedDestination .delete-button:hover {
+            background-color: #c82333;
+        }
+        
+
+    </style>
+    <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+    
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="sidebar js-sidebar">
+            <!-- Sidebar content goes here -->
+            <div class="sidebar-content js-simplebar">
+                <a class="sidebar-brand" href="user_home.html">
+                    <span class="align-self-center">Trekzen</span>
+                </a>
+
+                <ul class="sidebar-nav">
+                    <!-- Sidebar items go here -->
+                    <div class="dropdown-divider"></div>
+                    <li class="sidebar-header">
+                        Pages
+                    </li>
+
+                    <li class="sidebar-item ">
+                        <a class="sidebar-link" href="user_home.html">
+                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="profile.html">
+                            <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+                        </a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+
+                    <li class="sidebar-header">
+                        Services
+                    </li>
+
+                    <li class="sidebar-item ">
+                        <a class="sidebar-link" href="quickplan.html">
+                            <i class="align-middle"></i> <span class="align-middle">Quick Plan</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="vacation.html">
+                            <i class="align-middle"></i> <span class="align-middle">Vacation Planner</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item ">
+                        <a class="sidebar-link" href="bussiness.html">
+                            <i class="align-middle"></i> <span class="align-middle">Manage Business</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="addplace_main.html">
+                            <i class="align-middle"></i> <span class="align-middle">Add Place</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item active">
+                        <a class="sidebar-link" href="preset1.html">
+                            <i class="align-middle"></i> <span class="align-middle">Kodaikanal</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main">
+            <nav class="navbar navbar-expand navbar-light navbar-bg">
+                <!-- Navbar content goes here -->
+                <a class="sidebar-toggle js-sidebar-toggle">
+                    <i class="hamburger align-self-center"></i>
+                </a>
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav navbar-align">
+                        <li class="nav-item dropdown">
+                            <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
+                                <i class="align-middle" data-feather="settings"></i>
+                            </a>
+          
+                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                                <span class="text-dark" id="greet"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="profile.html">
+                                    <i class="align-middle me-1" data-feather="user"></i> Profile</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" id="signoutbutton">Log out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main class="content">
+                <div class="container-fluid">
+                    
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">Place to visit</h5>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Form for selecting districts and destinations -->
+                                    <form id="tripForm">
+                                        <div class="form-group">
+                                            <label for="location">Starting location</label>
+                                            <select class="form-control mb-3" id="location">
+                                                <option value="suku">Select a destination</option>
+                                                <!-- Options for destinations will be populated dynamically based on the selected district -->
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="district">Select District:</label>
+                                            <select class="form-control mb-3" id="district">
+                                                <option value="All Districts">All Districts</option>
+                                                <!-- Options for districts will be populated dynamically based on the GeoJSON data -->
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="category">Categories</label>
+                                            <select class="form-select mb-3" id="category">
+                                                <option value="thunder" disabled selected>Choose Category</option>
+                                                <option value="all">All</option>
+                                                <option value="place">Place</option>
+                                                <option value="tourist">Tourist</option>
+                                                <option value="hotels">Hotels</option>
+                                                <option value="facilities">Facilities</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="destination">Select Destination:</label>
+                                            <select class="form-control mb-3" id="destination">
+                                                <option value="">Select a destination</option>
+                                                <!-- Options for destinations will be populated dynamically based on the selected district -->
+                                            </select>
+                                        </div>
+                                        <button type="button" class="btn btn-primary" id="addToRouteButton">Add to Route</button>
+                                        <input type="hidden" id="selectedDestinationsInput" name="selectedDestinations">
+                                    </form>
+                                    <!-- End of form -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div id="map" class="map-container"></div> <!-- Leaflet map container -->
+                            
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <div id="selectedDestinationsContainer" class="d-none">
+                                
+                                <!-- Container to display selected destinations -->
+                            </div>
+                            <button type="button" class="btn btn-primary d-none" id="showTourButton">Show Tour</button>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <button type="button" class="btn btn-primary" id="startNewTour" style="display: none;">Start New Tour</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div id="status"></div>
+
+
+    <script src="Mainpage/assets/js/app.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Leaflet MarkerCluster JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+    <!-- PapaParse JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <!-- Leaflet Routing Machine JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.js"></script>
+    <!-- Your existing JavaScript file -->
+    <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js"></script>
+    <script type="module" src="user_login.js"></script>
+    <script src="script.js"></script>
+    <script src="preset1.js"></script>
+    
+</body>
+</html>
