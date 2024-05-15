@@ -236,7 +236,6 @@
 				                    <li class=" scroll active"><a href="#home" id="">home</a></li>
 				                    <li class="scroll"><a href="#service"id="">service</a></li>
 				                    <li class="scroll"><a href="#new-cars"id="">new plans</a></li>
-									<li class="scroll"><a href="#">Add Place</a></li>
 				                    <li class="scroll"><a href="#contact" id="">contact</a></li>
 									<li class="scroll"><a href="#" id="loginBtn">login</a></li>
 				                </ul><!--/.nav -->
@@ -350,7 +349,7 @@
 								<img src="Homepage/assets/images/Places/kodaikanal-lake.webp" alt="Kodaikanal">
 							</div>
 							<div class="new-cars-txt">
-								<h2><a href="#">Kodaikanal</a></h2>
+								<h2><a href="#" id="loginBtn">Kodaikanal</a></h2>
 								<p>Perched amidst the mist-clad hills of Tamil Nadu, Kodaikanal captivates visitors with its serene lakes, lush forests, and enchanting views, making it a beloved destination for nature lovers and adventurers alike.</p>
 								<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">View Details</button>
 							</div>
@@ -362,7 +361,7 @@
 								<img src="Homepage/assets/images/Places/hampi.jpg" alt="Hampi">
 							</div>
 							<div class="new-cars-txt">
-								<h2><a href="#">Hampi</a></h2>
+								<h2><a href="#" id="loginBtn">Hampi</a></h2>
 								<p>Nestled amidst the captivating ruins of an ancient empire, Hampi stands as a testament to the grandeur of the Vijayanagara Kingdom, offering visitors a mesmerizing journey through time and history.</p>
 								<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">View Details</button>
 							</div>
@@ -374,7 +373,7 @@
 								<img src="Homepage/assets/images/Places/vagamon.jpeg" alt="Vagamon">
 							</div>
 							<div class="new-cars-txt">
-								<h2><a href="#">Vagamon</a></h2>
+								<h2><a href="#" id="loginBtn">Vagamon</a></h2>
 								<p>Vagamon, a quaint hill station nestled in the Idukki district of Kerala, captivates visitors with its lush greenery, rolling meadows, and tranquil ambiance, offering a serene retreat amidst nature's splendor.</p>
 								<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">View Details</button>
 							</div>
@@ -493,6 +492,14 @@
             const overlay = document.getElementById('overlay');
             const closeBtn = document.getElementById('closeBtn');
             const serviceLinks = document.querySelectorAll('.single-service-item');
+			const carLinks = document.querySelectorAll('.new-cars-item');
+			
+			carLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    loginContainer.style.display = 'block';
+                    overlay.style.display = 'block';
+                });
+            });
 
             serviceLinks.forEach(link => {
                 link.addEventListener('click', () => {
